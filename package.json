@@ -1,0 +1,24 @@
+{
+  "name": "TPPS",
+  "version": "1.0.0",
+  "description": "Repositório para teste prático de programação",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TassioS/TPPS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TassioS/TPPS/issues"
+  },
+  "homepage": "https://github.com/TassioS/TPPS#readme"
+}
