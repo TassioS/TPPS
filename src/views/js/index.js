@@ -20,9 +20,7 @@ $(document).ready(function(){
         
         data.forEach(Element => {
             $("#phrasesList").append(
-                $('<li class="list-group-item" id=Element.id>texto'.replace('Element.id',Element.id)).append(
-                    '<>'
-                )
+                $('<li class="list-group-item" id=Element.id>texto'.replace('Element.id',Element.id))
             )
             $("#x".replace('x',Element.id)).text(Element.text)
         });
