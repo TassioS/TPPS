@@ -20,7 +20,7 @@ background-color: rgb(138, 138, 138);
 
 .centered {
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
