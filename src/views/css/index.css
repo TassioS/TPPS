@@ -30,3 +30,13 @@ background-color: rgb(138, 138, 138);
     height: 100px;
     width: 200px;
 }
+
+.phrasesElements{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.list-group-item{
+    width: 50%;
+}

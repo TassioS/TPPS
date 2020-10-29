@@ -6,6 +6,7 @@ $(document).ready(function(){
 
     createList();
 
+
     function createList(){
         $.ajax({
             type: 'GET',
@@ -19,8 +20,9 @@ $(document).ready(function(){
     function fillList(data){
         
         data.forEach(Element => {
-            $("#phrasesList").append(
-                $('<li class="list-group-item" id=Element.id>texto'.replace('Element.id',Element.id))
+            $("#phrasesDiv").append(
+                $('<div class="phrasesElements">').append(
+                    $('<li class="list-group-item" id=Element.id> </li> <button type="button" class="btn btn-primary" onclick="listen(this)" >Ouvir</button>'.replace('Element.id',Element.id)))
             )
             $("#x".replace('x',Element.id)).text(Element.text)
         });
@@ -34,9 +36,26 @@ $(document).ready(function(){
             dataType: "json",
             url: endpoint+'/addPhrases',
             data: body
+        }).done(function(data){
+            console.log(data)
         })
         location.reload();
     }
 });
 
+function listen(val){
+    const endpoint = "http://localhost:3000/watson"
+    body = {}
+    body['id'] = val.parentElement.firstChild.id
 
+    $.ajax({
+        type: 'POST',
+        dataType: "json",
+        url: endpoint+'/getSpeech',
+        data: body
+        }).done(function(data){
+            console.log(data)
+        })
+        const audio = document.getElementById("audio");
+        audio.play();
+}

@@ -9,5 +9,14 @@ module.exports = {
             text = '${data.text}'`,
             callback
           )
+    },
+
+    getPhraseById: async function(con,data,callback){
+        console.log('teste1')
+        con.query(
+            `SELECT p.text FROM phrases p
+            WHERE p.id = '${data.id}'`,
+            callback
+          )
     }
 };
