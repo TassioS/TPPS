@@ -12,6 +12,8 @@ CREATE TABLE phrases(
 );
 "
 
-Rodar npm install para instalar todos os pacotes
+Rodar "npm install" para instalar todos os pacotes
+
+"npm start" para iniciar o servidor
 
 E após isso abrir o arquivo: src/views/index.html
