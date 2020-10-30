@@ -47,15 +47,19 @@ function listen(val){
     const endpoint = "http://localhost:3000/watson"
     body = {}
     body['id'] = val.parentElement.firstChild.id
-
-    $.ajax({
-        type: 'POST',
-        dataType: "json",
-        url: endpoint+'/getSpeech',
-        data: body
-        }).done(function(data){
-            console.log(data)
-        })
-        const audio = document.getElementById("audio");
-        audio.play();
+    ToSpeech(body)
 }
+
+function ToSpeech(body) {
+    const endpoint = "http://localhost:3000/watson"
+    try {
+        const sound = new Howl({
+            html5: true,
+            src: endpoint+'/getSpeech?id='+body.id
+        });
+        sound.play();
+    } catch (error) {
+        console.log(error)
+    }
+}
+

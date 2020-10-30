@@ -1,5 +1,6 @@
 const watson = require("../models/watsonModel")
 const requests = require("../models/requestsModel")
+const { json } = require("express")
 const apikey = 'qDfrgGwZOhImw0Q5wOeZLsh-6n7triYWQtDlR-Gqcagm'
 require("dotenv").config()
 
@@ -19,28 +20,18 @@ module.exports = {
                 erroQuery(err);
                 return;
             }
-            res.status(201).json("Frase adicionada com sucesso");
-        })
-    },
-
-    getPhraseById : function(req,res) {
-        watson.getPhraseById(req.con,req.body, function(err,rows){
-            if (err) {
-                erroQuery(err);
-                return;
-            }
-            res.status(200).send(rows);
+            res.status(201).send("Frase adicionada com sucesso");
         })
     },
 
     getSpeech : function(req,res) {
-        watson.getPhraseById(req.con,req.body, function(err,rows){
+        watson.getPhraseById(req.con,req.query, async function(err,rows){
             if (err) {
                 erroQuery(err);
                 return;
             }
-            requests.textTransform(rows[0].text)
-            res.status(200).json("Ok")
+            const buffer = await requests.textTransform(rows[0].text)
+            res.status(200).send(buffer);
         })
     }
 

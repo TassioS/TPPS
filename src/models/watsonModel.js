@@ -11,8 +11,7 @@ module.exports = {
           )
     },
 
-    getPhraseById: async function(con,data,callback){
-        console.log('teste1')
+    getPhraseById: function(con,data,callback){
         con.query(
             `SELECT p.text FROM phrases p
             WHERE p.id = '${data.id}'`,
