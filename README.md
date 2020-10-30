@@ -11,3 +11,7 @@ CREATE TABLE phrases(
     text VARCHAR(200) NOT NULL
 );
 "
+
+Rodar npm install para instalar todos os pacotes
+
+E após isso abrir o arquivo: src/views/index.html
